@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Scoring Web App</title>
+    <style>
+        button{
+            font-size: 17.5px;
+        }
+        body{
+            background-color: rgba(0, 179, 255, 0.7);
+        }
+        #div1{
+            margin-top: 10px;
+            display: inline-block;
+            margin-right: 7.5px;
+            margin-left: 7.5px;
+            float: none;
+            background-color: rgba(255, 94, 94, 0.85);
+            border-radius: 10px;
+            border: 2.5px solid black;
+        }
+        #div2{
+            margin-top: 10px;
+            display: inline-block;
+            margin-left: 7.5px;
+            margin-right: 7.5px;
+            float: none;
+            background-color: rgba(255, 94, 94, 0.85);
+            border-radius: 10px;
+            border: 2.5px solid black;
+        }
+        #button{
+            float: none;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 class="text-danger"><u>Scoring Web App</u></h1>
+        <br>
+        <div class="col-lg-5 col-md-6 col-sm-7 col-xs-9" id="div1">
+            <h2 class="text-primary"><u>Player 1</u></h2>
+            <h3 class="text-primary" id="result1">Score: 0</h3>
+            <br>
+            <button class="btn btn-primary" onclick="add1()">+1</button><br><br>
+            <button class="btn btn-primary" onclick="reduce1()">-1</button><br><br>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-7 col-xs-9" id="div2">
+            <h2 class="text-primary"><u>Player 2</u></h2>
+            <h3 class="text-primary" id="result2">Score: 0</h3>
+            <br>
+            <button class="btn btn-primary" onclick="add2()">+1</button><br><br>
+            <button class="btn btn-primary" onclick="reduce2()">-1</button><br><br>
+        </div>
+        <br><br>
+        <button class="col-lg-3 col-md-4 col-sm-6 col-xs-9 btn btn-danger" id="button" onclick="save()">Save</button>
+    </center>
+
+    <script>
+        var score1 = 0;
+        var score2 = 0;
+        function add1(){
+            score1 = score1 + 1;
+            document.getElementById('result1').innerHTML = 'Score: ' + score1;
+        }
+        function add2(){
+            score2 = score2 + 1;
+            document.getElementById('result2').innerHTML = 'Score: ' + score2;
+        }
+        function reduce1(){
+            score1 = score1 - 1;
+            document.getElementById('result1').innerHTML = 'Score: ' + score1;
+        }
+        function reduce2(){
+            score2 = score2 - 1;
+            document.getElementById('result2').innerHTML = 'Score: ' + score2;
+        }
+        function save(){
+            localStorage.setItem('Player 2', score2);
+            localStorage.setItem('Player 1', score1);
+        }
+    </script>
+</body>
+
+</html>
